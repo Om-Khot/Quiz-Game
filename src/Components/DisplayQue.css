@@ -1,0 +1,47 @@
+.queBlock{
+    width: 80%;
+    height: 75vh;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.questionText{    
+    min-width: 75%;
+    min-height: 20%;
+    max-height: 30%;
+    margin: 2px auto;
+    padding: 2px 10px;
+    font-size: x-large;
+    border: 0.3px solid grey;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.optionsBlock{
+    width: 80%;
+    height: 45%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.optionsBlock button{
+    width: 40%;
+    height: 55px;
+    border-radius: 45px;
+    border: 0.3px solid grey;  
+    background-color: #ffffff;  
+}
+
+.optionsBlock button:hover{
+    background-color: #4b0082;
+    color: #ffffff;
+}

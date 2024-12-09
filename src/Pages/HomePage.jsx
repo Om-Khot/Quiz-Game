@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-
+import './HomePage.css';
 function HomePage(){
     return (
-        <div>
+        <div className="home">
             <div>
                 <h1>Quizzy Quest</h1>
             </div>
             <div>
-                <h2>Welcome To Amazing Quiz Game!<br/> Let's Test Your Brain Here...</h2>
+                <h2>"Dare to take the ultimate quiz challenge?"</h2>
             </div>
             <div>
                 <Link to={'/start'}><button>Start Game</button></Link>                

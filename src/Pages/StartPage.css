@@ -1,0 +1,21 @@
+.playPage{
+   color: #333;
+}
+
+.queNo{
+    font-size: 20px;
+}
+.playBtns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:25px;
+}
+
+.playBtns button{
+    background-color:  #c8b1b1;;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: 0.3px solid grey;
+}

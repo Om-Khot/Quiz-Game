@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import QueContext from "../Context/QueContext";
 import DisplayQue from "../Components/DisplayQue";
-
+import './StartPage.css';
 function StartPage(){
 
     const {list} = useContext(QueContext);
@@ -13,18 +13,18 @@ function StartPage(){
 
 
     return (
-        <div>
-            <div>Question No. {queId}</div>
+        <div className="playPage">
+            <div className="queNo">Question No. {queId}</div>
             <div>
                 {list.map((q)=>{                   
                     if(q.id == queId){
                         return(
-                            <DisplayQue key={q.id} queText={q.question} rtAns={q.rightAns} wrAns={q.wrongAns}/>
+                            <DisplayQue key={q.id} queText={q.question} rtAns={q.rightAns} wrAns={q.wrongAns} keyprop={q.id}/>
                         );                       
                     }
                 })}                
             </div>
-            <div>
+            <div className="playBtns">
                 <button disabled={queId == 1} onClick={()=>{
                     setqueId(queId-1);
                 }}>Prev</button>
