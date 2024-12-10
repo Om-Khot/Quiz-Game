@@ -1,27 +1,35 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import QueContext from "../Context/QueContext";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import addArrayEle from "../Helpers/addArrayEle";
+import shuffleOptions from "../Helpers/shuffleArray";
 function QuestionCompo(){
 
     const {list} = useContext(QueContext);
 
+    const [isLoading,setIsLoading] = useState(true);
     async function fetchQuestion() {
         const response = await axios.get("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple");
         const responseData = response.data.results;
-        // console.log(responseData);
         const responsePromise = await axios.all(responseData);
         let idx = 1;
         const res = responsePromise.map((que)=>{
+
+            let rightAns = que.correct_answer;
+            let wrongAns = que.incorrect_answers;
+            let arr = addArrayEle(rightAns,wrongAns);
+            arr = shuffleOptions(arr);
+
             list.push({
                 id : idx++,
                 question : que.question,
                 rightAns : que.correct_answer,
-                wrongAns : que.incorrect_answers
+                options : arr,
+                isAnswered: false,
             })
         })
-
-        console.log(list);
+        setIsLoading(false);
     }
 
     useEffect(()=>{
@@ -31,9 +39,8 @@ function QuestionCompo(){
     return(
         <div>
             <h1>Welcome to Quiz </h1>
-            <h3>Your context is ready </h3>
-            <Link to={'/play'}><button>Play Game</button></Link>
-            
+            {isLoading ? "Loading....." : <h3>Your context is ready </h3>}
+            {isLoading ? "" : <Link to={'/play'}><button>Play Game</button></Link>}           
         </div>
     );
 }

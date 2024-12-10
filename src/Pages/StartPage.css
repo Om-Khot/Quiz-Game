@@ -3,7 +3,23 @@
 }
 
 .queNo{
+    margin: 1px 15px;
     font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.queNo div:nth-child(2){
+    width: 250px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.queNo button{
+    background-color: red;
+    color: white;
+    border: none;
 }
 .playBtns{
     width: 100%;
